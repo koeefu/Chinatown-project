@@ -16,7 +16,7 @@ document.body.appendChild( renderer.domElement );
 //  )
 
 const geometry = new THREE.CylinderGeometry(
-    1, 1, 1,
+    1, 1, 2.5,
     30, 1, 
     false, 
     0, 2 * Math.PI)
