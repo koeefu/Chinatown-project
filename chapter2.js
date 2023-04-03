@@ -18,7 +18,25 @@ document.body.appendChild(renderer.domElement);
 const scene = new THREE.Scene();
 
 //light
-scene.add(new THREE.AmbientLight(0x666666));
+//ambient light
+const color = new THREE.Color(0x00fdff);
+const ambientLight = new THREE.AmbientLight(color);
+ambientLight.intensity = 0.6; //intensity of light
+scene.add(ambientLight);
+// scene.add(new THREE.AmbientLight(0x00fdff));
+
+const spotLight = new THREE.SpotLight("#f54275")
+spotLight.penumbra = 0.4;
+spotLight.position.set(1, 1, 1);
+spotLight.castShadow = true;
+spotLight.intensity = 1;
+spotLight.shadow.camera.near = 10;
+spotLight.shadow.camera.far = 25;
+spotLight.shadow.mapSize.width = 2048;
+spotLight.shadow.mapSize.height = 2048;
+spotLight.shadow.bias = -0.01;
+scene.add(spotLight);
+
 scene.add(new THREE.DirectionalLight(0xaaaaaa));
 
 //floor
